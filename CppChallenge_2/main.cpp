@@ -22,17 +22,17 @@ using namespace std;
  * http://www.cprogramming.com/complete/guessing.html
  */
 int main() {
-    int number = rand();
+    int number = rand() % 100;
     int guess = -1;
     int trycount = 0;
 
-    while (guess != number || trycount < 8) {
+    while (guess != number && trycount < 8) { // while precisa que ambos sejam falsos para quebrar o loop. interessante. ;D
         cout << "Please enter a guess> ";
         cin >> guess;
 
-        if (guess > number) {
+        if (guess < number) {
             cout << "Too low" << endl;
-        } else if (guess < number) {
+        } else if (guess > number) {
             cout << "Too high" << endl;
         } else if ( guess == number){
             cout <<" You guessed the number!";
